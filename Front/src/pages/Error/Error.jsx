@@ -9,10 +9,11 @@ function Error () {
               <section className="error">
                   <h2 className="sr-only">Error 404</h2>
                   <img src={GreenError} alt="error 404" className="green-error"/> 
-                  <p className="text-error">La page demandée n&apos;existe pas...</p>
+                  <p className="text-error">Sorry.. <br></br>
+                  The requested page does not exist.</p>
                   
                   < Link to="/">
-                      <button className="button-404">Retour page d&apos;accueil</button>
+                      <button className="button-404">Back to Homepage</button>
                   </Link>
               </section>
           </main>
