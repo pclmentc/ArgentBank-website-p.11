@@ -16,10 +16,10 @@ export default function Router() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Accueil />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/login" element={<Login />} />
         <Route
-          path="/login"
-          element={isConnected ? <Login /> : <Navigate to="/user" />}
+          path="/user"
+          element={isConnected ? <User /> : <Navigate to="/login" />}
         />
         <Route path="*" element={<Error />} />
       </Routes>

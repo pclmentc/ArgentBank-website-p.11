@@ -47,7 +47,7 @@ function SignInForm() {
                 if (rememberMe) {
                     localStorage.setItem("token", token);
                 }
-                navigate('/login');
+                navigate('/user');
             } else {
                 const error = "Incorrect email/password"
                 dispatch(loginFailed(error));
