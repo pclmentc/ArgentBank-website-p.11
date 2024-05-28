@@ -33,19 +33,17 @@ function Navbar () {
       {isConnected ? (
                     <div className='connected'>
                         <Link to='/profile'>
-                            <i className='fa-solid fa-2x fa-circle-user' />
+                            <i className='fa-solid fa-circle-user' />
                             <p>{firstname}</p>
                         </Link>
-                        <Link to='/' onClick={logoutHandler}>
-                            <i className='fa-solid fa-arrow-right-from-bracket' />
-                            <p> Sign out </p>
+                        <Link to='/' onClick={logoutHandler}>                            
+                            <p>Sign out <i className='fa-solid fa-arrow-right-from-bracket' /></p>
                         </Link>
                     </div>
                 ) : (
                     <div className='not-connected'>
-                        <Link to='/login' >
-                            <i className="fa-solid fa-circle-user"></i>
-                            <p>Sign In</p>
+                        <Link to='/login' >                            
+                            <p><i className="fa-solid fa-circle-user"></i> Sign In</p>
         </Link>
       </div>
                 )}
