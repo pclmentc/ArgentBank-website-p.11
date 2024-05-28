@@ -34,7 +34,7 @@ function Navbar () {
                     <div className='connected'>
                         <Link to='/profile'>
                             <i className='fa-solid fa-circle-user' />
-                            <p>{firstname}</p>
+                            <p>{firstname},</p>
                         </Link>
                         <Link to='/' onClick={logoutHandler}>                            
                             <p>Sign out <i className='fa-solid fa-arrow-right-from-bracket' /></p>
