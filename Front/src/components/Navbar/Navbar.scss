@@ -26,9 +26,13 @@
   }
 }
 
-.main-nav-item {
+.main-nav {
   margin-right: 0.5rem;
-  .fa{
+  a{
+    display: flex;
+    align-items: center;
+  }
+  .fa-solid{
     padding-right: 6px;
     font-size: 18px;
   }
