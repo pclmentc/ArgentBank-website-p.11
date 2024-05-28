@@ -21,7 +21,7 @@ function Navbar () {
 
   return (
     <nav className="main-nav">
-      <Link className="main-nav-logo" to="/">
+      <Link className="main-nav-logo" to="#">
         <img
           className="main-nav-logo-image"
           src={logo}
