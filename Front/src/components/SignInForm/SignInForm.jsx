@@ -20,11 +20,11 @@ function SignInForm() {
         event.preventDefault();
         /* Handle error message */
         if (!isValidEmail(email)) {
-            setErrorMessage("Invalid email adress");
+            setErrorMessage("Invalid email adress or password");
             return;
         }
         if (!isValidPassword(password)) {
-            setErrorMessage("Invalid password");
+            setErrorMessage("Invalid email adress or password");
             return;
         }
         try {
