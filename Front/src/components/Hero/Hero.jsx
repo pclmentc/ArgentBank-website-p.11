@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
 import './Hero.scss';
-import heroData from '../../../data/heroData.json'
+import heroData from '../../data/heroData.json'
 
 function Hero() {
   return (

@@ -6,7 +6,7 @@ import { userProfile } from '../../redux/actions/user.actions.jsx';
 import Header from '../../components/Header/Header';
 import Account from '../../components/Account/Account';
 import './User.scss';
-import jsonData from '../../../data/userData.json';
+import jsonData from '../../data/userData.json';
 
 function User() {
   const token = useSelector((state) => state.auth.token);

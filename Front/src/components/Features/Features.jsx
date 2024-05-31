@@ -1,4 +1,4 @@
-import featuresData from '../../../data/featuresData.json'; // Importez vos données JSON
+import featuresData from '../../data/featuresData.json'; // Importez vos données JSON
 import chatIcon from '../../assets/icon-chat.webp';
 import moneyIcon from '../../assets/icon-money.webp';
 import securityIcon from '../../assets/icon-security.webp';
