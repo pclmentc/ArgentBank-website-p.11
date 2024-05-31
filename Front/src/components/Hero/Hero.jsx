@@ -1,15 +1,16 @@
 // src/components/Hero.jsx
 import './Hero.scss';
+import heroData from '../../../data/heroData.json'
 
 function Hero() {
   return (
     <div className="hero">
       <section className="hero-content">
         <h2 className="sr-only">Promoted Content</h2>
-        <p className="subtitle">No fees.</p>
-        <p className="subtitle">No minimum deposit.</p>
-        <p className="subtitle">High interest rates.</p>
-        <p className="text">Open a savings account with Argent Bank today!</p>
+        {heroData.hero['hero-content'].subtitle.map((subtitle, index) => (
+          <p key={index} className="subtitle">{subtitle}</p>
+        ))}
+        <p className="text">{heroData.hero['hero-content'].text}</p>
       </section>
     </div>
   );

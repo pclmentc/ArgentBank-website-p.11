@@ -6,6 +6,7 @@ import { userProfile } from '../../redux/actions/user.actions.jsx';
 import Header from '../../components/Header/Header';
 import Account from '../../components/Account/Account';
 import './User.scss';
+import jsonData from '../../../data/userData.json';
 
 function User() {
   const token = useSelector((state) => state.auth.token);
@@ -50,30 +51,20 @@ function User() {
     }
 }, [dispatch, token]);
 
-  return (
-    
-    <main className="main bg-dark">
-      <Header />
-      <h2 className="sr-only">Accounts</h2>
-      <Account 
-        title="Argent Bank Checking (x8349)" 
-        amount="$2,082.79" 
-        description="Available Balance" 
+return (
+  <main className={jsonData.main.className}>
+    <Header />
+    <h2 className={jsonData.main.children[1].className}>{jsonData.main.children[1].children}</h2>
+    {jsonData.main.children.slice(2).map((child, index) => (
+      <Account
+        key={index}
+        title={child.title}
+        amount={child.amount}
+        description={child.description}
       />
-      <Account 
-        title="Argent Bank Savings (x6712)" 
-        amount="$10,928.42" 
-        description="Available Balance" 
-      />
-      <Account 
-        title="Argent Bank Credit Card (x8349)" 
-        amount="$184.30" 
-        description="Current Balance" 
-      />
-    </main>
-    
-  );
+    ))}
+  </main>
+);
 }
-
 export default User;
 
