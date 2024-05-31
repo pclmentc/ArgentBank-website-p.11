@@ -1,14 +1,10 @@
 // src/components/SignInForm.js
 import "./SignInForm.scss";
 import { signInService } from "../../services/authService.jsx";
-
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  loginFailed,
-  loginSuccess,
-} from "../../redux/actions/auth.actions.jsx";
+import { loginFailed, loginSuccess,} from "../../redux/actions/auth.actions.jsx";
 import { isValidEmail, isValidPassword } from "../../utils/regex.jsx";
 
 function SignInForm() {
