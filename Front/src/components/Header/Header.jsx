@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateUsername } from '../../redux/actions/user.actions.jsx';
 import { isValidName } from "../../utils/regex.jsx";
 import './Header.scss';
+import { updateUsernameService } from '../../utils/userService.jsx';
 
 function Header() {
   const token = useSelector((state) => state.auth.token);
@@ -26,29 +27,11 @@ function Header() {
             setErrorMessage("");
         }
         try {
-            const response = await fetch('http://localhost:3001/api/v1/user/profile', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify({userName}),
-            });
-            if (response.ok) {
-                const data = await response.json();
-                const username = data.body.userName;
-                /* 
-                    Checking that the query response is indeed retrieved
-                    console.log(data) 
-                */
-                dispatch(updateUsername(username));
-                setDisplay(!display);
-            } else {
-                console.log("Invalid Fields")
-            }
-
-        } catch (error) {
-            console.error(error);
+            const username = await updateUsernameService(token, userName);
+    dispatch(updateUsername(username));
+    setDisplay(!display);
+  } catch (error) {
+    console.error(error);
         }
     }
   return (
