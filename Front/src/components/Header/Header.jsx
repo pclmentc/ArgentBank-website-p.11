@@ -6,7 +6,7 @@ import './Header.scss';
 import { updateUsernameService } from '../../services/userService.jsx';
 
 function Header() {
-  const token = useSelector((state) => state.auth.token);
+    const token = useSelector((state) => state.auth.token);
     const userData = useSelector((state) => state.user.userData);
     /* Manages the appearance of the username modification form */
     const [display, setDisplay] = useState(true);
@@ -28,24 +28,24 @@ function Header() {
         }
         try {
             const username = await updateUsernameService(token, userName);
-    dispatch(updateUsername(username));
-    setDisplay(!display);
-  } catch (error) {
-    console.error(error);
+            dispatch(updateUsername(username));
+            setDisplay(!display);
+        } catch (error) {
+            console.error(error);
         }
     }
-  return (
-    <div className="header">
-    { display ?
-    <div>
-      <h1>Welcome back<br />
-      {userData.username} {userData.lastname} 
-      </h1>
+    return (
+        <div className="header">
+            {display ?
+                <div>
+                    <h1>Welcome back<br />
+                        {userData.username} {userData.lastname}
+                    </h1>
 
-      <button className="edit-button"onClick={() => setDisplay(!display)}>Edit Name</button>
-    </div>
-    :
-    <div>
+                    <button className="edit-button" onClick={() => setDisplay(!display)}>Edit Name</button>
+                </div>
+                :
+                <div>
                     <h2>Edit user info</h2>
                     <form>
                         <div className="edit-input">
@@ -61,7 +61,7 @@ function Header() {
                             <label htmlFor="firstname">First name:</label>
                             <input
                                 type="text"
-                                id="firstname" 
+                                id="firstname"
                                 defaultValue={userData.firstname}
                                 disabled={true}
                             />
@@ -70,7 +70,7 @@ function Header() {
                             <label htmlFor="lastname">Last name:</label>
                             <input
                                 type="text"
-                                id="lastname" 
+                                id="lastname"
                                 defaultValue={userData.lastname}
                                 disabled={true}
                             />
