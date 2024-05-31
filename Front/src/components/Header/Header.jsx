@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateUsername } from '../../redux/actions/user.actions.jsx';
 import { isValidName } from "../../utils/regex.jsx";
 import './Header.scss';
-import { updateUsernameService } from '../../utils/userService.jsx';
+import { updateUsernameService } from '../../services/userService.jsx';
 
 function Header() {
   const token = useSelector((state) => state.auth.token);
