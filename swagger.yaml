@@ -148,7 +148,7 @@ paths:
         '500':
           description: Internal Server Error
   /transactions/{transactionID}/category:
-    patch:
+    put:
       tags:
         - Accounts and Transactions Module
       summary: Update transaction's category
@@ -210,7 +210,7 @@ paths:
         '500':
           description: Internal Server Error
   /transactions/{transactionID}/note/{noteID}:
-    patch:
+    put:
       tags:
         - Accounts and Transactions Module
       summary: Modify transaction's note
@@ -369,19 +369,23 @@ definitions:
       category:
         type: string
         description: name of the category
-      note: 
-        type: string
-        description: user note
+      
   TransactionCategory:
     type: object
     properties:
+      ID:
+        type: string
       category:
         type: string
   TransactionNote:
     type: object
     properties:
+      transactionID:
+        type: string
       note:
         type: string
+      noteID:
+        type: string  
   TransactionResponseNote:
     type: object
     properties:
