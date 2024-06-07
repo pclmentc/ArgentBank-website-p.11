@@ -17,6 +17,7 @@ export async function signInService(email, password) {
       throw new Error("Incorrect email/password");
     }
   } catch (error) {
+    console.error("Error in signInService:", error);
     throw new Error(error.message);
   }
 }

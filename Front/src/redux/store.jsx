@@ -3,13 +3,13 @@ import { authReducer } from './reducers/auth.reducer.jsx';
 import { userReducer } from './reducers/user.reducer.jsx';
 
 const rootReducer = combineReducers({
-   auth: authReducer,
-   user: userReducer
+    auth: authReducer,
+    user: userReducer
 })
 
 const store = configureStore({
     reducer: rootReducer,
-    devTools: true 
+    devTools: true
 })
 
 export default store
