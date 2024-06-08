@@ -1,9 +1,9 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   title: Bank Argent API documentation
   description: Contains all available API endpoints in this codebase
-  version: '2.0.0'
-  termsOfService: 'http://swagger.io/terms/'
+  version: "2.0.0"
+  termsOfService: "http://swagger.io/terms/"
 host: localhost:3001
 basePath: /api/v2
 schemes:
@@ -21,17 +21,17 @@ paths:
           description: Login Payload
           required: true
           schema:
-            $ref: '#/definitions/Login'
+            $ref: "#/definitions/Login"
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: Login Successfully
           schema:
-            $ref: '#/definitions/LoginResponse'
-        '400':
+            $ref: "#/definitions/LoginResponse"
+        "400":
           description: Invalid Fields
-        '500':
+        "500":
           description: Internal Server Error
   /user/signup:
     post:
@@ -45,17 +45,17 @@ paths:
           description: Signup Payload
           required: true
           schema:
-            $ref: '#/definitions/User'
+            $ref: "#/definitions/User"
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: Signup Successfully
           schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
+            $ref: "#/definitions/ApiResponse"
+        "400":
           description: Invalid Fields
-        '500':
+        "500":
           description: Internal Server Error
   /user/profile:
     post:
@@ -68,13 +68,13 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: User profile retrieved successully
           schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
+            $ref: "#/definitions/ApiResponse"
+        "400":
           description: Invalid Fields
-        '500':
+        "500":
           description: Internal Server Error
     put:
       security:
@@ -89,36 +89,36 @@ paths:
           description: Update user profile attributes
           required: true
           schema:
-            $ref: '#/definitions/UserProfile'
+            $ref: "#/definitions/UserProfile"
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: User profile retrieved successully
           schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
+            $ref: "#/definitions/ApiResponse"
+        "400":
           description: Invalid Fields
-        '500':
+        "500":
           description: Internal Server Error
   /user/account:
-    get: 
+    get:
       tags:
         - Accounts and Transactions Module
       summary: All accounts
       description: API for retrieving all user account
       security:
         - Bearer: []
-      responses: 
-        '200':
+      responses:
+        "200":
           description: All accounts retrieved successfully
           schema:
             type: array
             items:
-              $ref: '#/definitions/AccountResponse'
-        '401':
+              $ref: "#/definitions/AccountResponse"
+        "401":
           description: Unauthorized user
-        '500':
+        "500":
           description: Internal Server Error
   /account/{accountID}/transactions:
     get:
@@ -126,7 +126,7 @@ paths:
         - Accounts and Transactions Module
       summary: Account transactions
       description: API for retrieving list of transactions assiocated with an account
-      security: 
+      security:
         - Bearer: []
       parameters:
         - in: path
@@ -135,17 +135,17 @@ paths:
           required: true
           type: string
       responses:
-        '200':
+        "200":
           description: All transactions retrieved successfully
-          schema: 
+          schema:
             type: array
             items:
-              $ref: '#/definitions/TransactionsResponse'
-        '401':
+              $ref: "#/definitions/TransactionsResponse"
+        "401":
           description: Unauthorized user
-        '404': 
+        "404":
           description: Account not found
-        '500':
+        "500":
           description: Internal Server Error
   /transactions/{transactionID}:
     patch:
@@ -153,7 +153,7 @@ paths:
         - Accounts and Transactions Module
       summary: Manage transaction's note and category
       description: API for managing a note and category of a transaction
-      security: 
+      security:
         - Bearer: []
       parameters:
         - in: path
@@ -165,18 +165,18 @@ paths:
           name: transaction
           description: New or modified transaction data
           required: true
-          schema: 
-            $ref: '#/definitions/TransactionPatch'
+          schema:
+            $ref: "#/definitions/TransactionPatch"
       responses:
-        '200':
+        "200":
           description: Transaction's note and category managed successfully
           schema:
-            $ref: '#/definitions/TransactionPatchResponse'
-        '401':
+            $ref: "#/definitions/TransactionPatchResponse"
+        "401":
           description: Unauthorized user
-        '404':
+        "404":
           description: Transaction not found
-        '500':
+        "500":
           description: Internal Server Error
 definitions:
   User:
@@ -247,7 +247,7 @@ definitions:
   TransactionsResponse:
     type: object
     properties:
-      transactionID: 
+      transactionID:
         type: string
         description: transaction ID
       transactionType:
@@ -273,10 +273,14 @@ definitions:
   TransactionPatch:
     type: object
     properties:
-      attribut:
+      note:
         type: string
+        description: Note associated with the transaction
+      category:
+        type: string
+        description: Category of the transaction
   TransactionPatchResponse:
     type: object
     properties:
       message:
-        type: string              
+        type: string
